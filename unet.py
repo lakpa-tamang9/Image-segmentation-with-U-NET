@@ -12,15 +12,15 @@ from skimage.transform import resize
 import matplotlib.pyplot as plt
 
 
-H = 96
-W = 416
-CH = 3
+H = #specify your image height
+W = #specify your image width
+CH = #specify your number of image channels
 
-X_TRAIN_PATH = '/Fingervein/augmented'
-Y_TRAIN_PATH = '/Fingervein/augmented_mask'
-TEST_PATH = '/Fingervein/test'
+X_TRAIN_PATH = #train path for images
+Y_TRAIN_PATH = #train path for masks
+TEST_PATH = #test path
 
-
+#Reading folder with glob
 x_train_ids = glob.glob(X_TRAIN_PATH + '/*')
 print(len(x_train_ids))
 
@@ -133,7 +133,7 @@ model.summary()
 
 #Model checkpoint
 
-chkp = tf.keras.callbacks.ModelCheckpoint('fingervein.h5', verbose=1, save_best_only=True)
+chkp = tf.keras.callbacks.ModelCheckpoint('trained_model.h5', verbose=1, save_best_only=True)
 
 callbacks = [
     tf.keras.callbacks.EarlyStopping(patience=2, monitor='val_loss'),
